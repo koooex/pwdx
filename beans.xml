@@ -3,9 +3,9 @@
 <beans>
     <bean class="koogem.DisableWarnings"/>
 
-    <bean class="pwdx.Executor">
-        <kwarg name="name" value="changsha"/>
-        <kwarg name="flag" value="11"/>
+    <bean class="excel.Executor">
+        <kwarg name="name" value="csg"/>
+        <kwarg name="flag" value="0"/>
         <kwarg name="db">
             <bean class="koogem.alchemy.SqlSoup" callable="0">
                 <arg value="mysql://root:pass@192.168.155.1:3306/wwc"/>
@@ -16,6 +16,20 @@
             </bean>
         </kwarg>
     </bean>
-    
-    <bean class="pwdx.Stopper"/>
+
+    <bean class="excel.Executor">
+        <kwarg name="name" value="csc"/>
+        <kwarg name="flag" value="1"/>
+        <kwarg name="db">
+            <bean class="koogem.alchemy.SqlSoup" callable="0">
+                <arg value="mysql://root:pass@192.168.155.1:3306/wwc"/>
+                <kwarg name="encoding" value="utf-8"/>
+                <kwarg name="convert_unicode" value="True"/>
+                <kwarg name="pool_recycle" value="1800"/>
+                <kwarg name="connect_args" value="{'charset': 'utf8'}"/>
+            </bean>
+        </kwarg>
+    </bean>
+
+    <bean class="excel.Stopper"/>
 </beans>
